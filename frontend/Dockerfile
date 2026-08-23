@@ -1,5 +1,7 @@
-# Use a minimal base image with Python 3.9 installed
-FROM python:3.9-slim
+# Use a minimal base image with Python 3.11 installed.
+# 3.11 rather than 3.9 because Streamlit 1.56 and requests 2.33 both need
+# Python 3.10 or newer, and it keeps the two images on the same base.
+FROM python:3.11-slim
 
 # Set the working directory inside the container to /app
 WORKDIR /app
