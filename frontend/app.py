@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import requests
@@ -19,7 +18,10 @@ st.write(
 # Input fields for product and store data
 Product_Weight = st.number_input("Product Weight", min_value=0.0, value=12.66)
 Product_Sugar_Content = st.selectbox("Product Sugar Content", ["Low Sugar", "Regular", "No Sugar"])
-Product_Allocated_Area = st.number_input("Product Allocated Area", min_value=0.0, value=0.027)
+Product_Allocated_Area = st.number_input(
+    "Product Allocated Area", min_value=0.0, max_value=1.0,
+    value=0.027, step=0.001, format="%.3f",
+)  # allocated area runs from 0.004 to 0.298, so three decimals are needed
 Product_MRP = st.number_input("Product MRP", min_value=0.0, value=117.08)
 Store_Size = st.selectbox("Store Size", ["Small", "Medium", "High"])
 Store_Location_City_Type = st.selectbox("Store Location City Type", ["Tier 1", "Tier 2", "Tier 3"])
